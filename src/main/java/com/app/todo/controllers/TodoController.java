@@ -5,10 +5,7 @@ import com.app.todo.service.TodoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +39,17 @@ public class TodoController {
         return "redirect:/todos/getTodos?userName=" + todo.getUserName();
     }
 
+    @GetMapping("/todos/delete/{id}/{userName}")
+    public String deleteTodo(@PathVariable(value = "id") Long id, @PathVariable(value = "userName") String userName) {
+        this.todoService.deleteTodo(id);
+        return "redirect:/todos/getTodos?userName=" + userName;
+    }
+
+    @GetMapping("/todos/showUpdateForm/{id}/{userName}")
+    public String showUpdateForm(@PathVariable(value = "id") Long id, @PathVariable(value = "userName") String userName, Model model) {
+        Todo todo = this.todoService.getTodo(id);
+        model.addAttribute("todo", todo);
+        return "update-todo";
+    }
 
 }

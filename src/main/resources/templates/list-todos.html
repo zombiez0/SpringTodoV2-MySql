@@ -27,11 +27,8 @@
         <td th:text="${todo.userName}"></td>
         <td th:text="${todo.description}"></td>
         <td th:text="${todo.isDone}"></td>
-<!--        <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}"-->
-<!--                class="btn btn-primary">Update</a>-->
-<!--            <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}"-->
-<!--               class="btn btn-danger">Delete</a>-->
-<!--        </td>-->
+        <td> <a th:href="@{/todos/showUpdateForm/{id}/{userName}(id=${todo.id}, userName=${todo.userName})}" class="btn btn-primary">Update</a> </td>
+        <td> <a th:href="@{/todos/delete/{id}/{userName}(id=${todo.id}, userName=${todo.userName})}" class="btn btn-danger">Delete</a> </td>
     </tr>
     </tbody>
 </table>

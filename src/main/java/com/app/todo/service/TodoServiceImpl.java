@@ -31,10 +31,6 @@ public class TodoServiceImpl implements ITodoService {
         return this.todoRepository.save(todo);
     }
 
-    @GetMapping("/updateTodo/{id}")
-    public Todo updateTodo(@PathVariable(value = "id") long id, Todo todo) {
-        return this.todoRepository.save(todo);
-    }
 
     public boolean deleteTodo(Long id) {
         this.todoRepository.deleteById(id);

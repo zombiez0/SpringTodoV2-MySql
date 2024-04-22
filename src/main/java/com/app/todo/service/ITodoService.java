@@ -10,8 +10,6 @@ public interface ITodoService {
 
     Todo createTodo(Todo todo);
 
-    Todo updateTodo(long id, Todo todo);
-
     boolean deleteTodo(Long id);
 
     List<Todo> getAllTodos(String userName);
