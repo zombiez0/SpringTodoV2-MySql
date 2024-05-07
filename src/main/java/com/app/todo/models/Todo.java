@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "todo", schema = "tododb")
 public class Todo {
 
     @Id
