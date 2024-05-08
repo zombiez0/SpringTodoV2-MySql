@@ -19,6 +19,7 @@
         <th>Description</th>
         <th>Is Done</th>
         <th>Action</th>
+        <th>Phone Number</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
         <td th:text="${todo.userName}"></td>
         <td th:text="${todo.description}"></td>
         <td th:text="${todo.isDone}"></td>
+        <td th:text="${todo.phonenumber}"></td>
         <td> <a th:href="@{/todos/showUpdateForm/{id}/{userName}(id=${todo.id}, userName=${todo.userName})}" class="btn btn-primary">Update</a> </td>
         <td> <a th:href="@{/todos/delete/{id}/{userName}(id=${todo.id}, userName=${todo.userName})}" class="btn btn-danger">Delete</a> </td>
     </tr>

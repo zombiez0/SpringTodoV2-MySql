@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "todo", schema = "tododb")
+@Table(name = "todo", schema = "tododb", uniqueConstraints = { @UniqueConstraint(name="phonenumber_unique", columnNames = "phonenumber") })
 public class Todo {
 
     @Id
@@ -21,14 +21,18 @@ public class Todo {
     @Column(name = "isdone")
     private boolean isDone;
 
+    @Column(name="phonenumber", nullable = false)
+    private Long phonenumber;
+
     public Todo() {
     }
 
-    public Todo(Long id, String username, String description, boolean isDone) {
+    public Todo(Long id, String username, String description, boolean isDone, long phonenumber) {
         this.id = id;
         this.userName = username;
         this.description = description;
         this.isDone = isDone;
+        this.phonenumber = phonenumber;
     }
 
     public Long getId() {
@@ -61,6 +65,14 @@ public class Todo {
 
     public void setIsDone(boolean done) {
         isDone = done;
+    }
+
+    public Long getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(Long phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
     @Override
