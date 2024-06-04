@@ -5,3 +5,5 @@ docker run -d -e MYSQL_ROOT_PASSWORD=administrator -e MYSQL_DATABASE=tododb -e M
 
 To Stop
 doker container stop <container-id>
+
+.
